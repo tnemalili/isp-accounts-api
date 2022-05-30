@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Maanda Ligula",
+    "surname": "Makhari",
+    "mobile": "0731209812",
+    "telephone": "0151230982",
+    "email": "maanda.makhari@gmail.co.za",
+    "customer_type": {
+      "id": 1,
+      "name": "individual",
+      "description": "Family Member"
+    },
+    "address": {
+      "house_number": 11,
+      "street_name": "Vhembe Street",
+      "province": "Limpopo",
+      "city": "Thohoyandou",
+      "township": "Makhuvha Tshilivho",
+      "postal_code": "8000"
+    },
+    "identity": {
+      "id": "8803175712889",
+      "country": {
+        "name": "South Africa",
+        "iso_code": "ZA",
+        "country_code": "+27"
+      }
+    }
+  }
+]

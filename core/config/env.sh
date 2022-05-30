@@ -1,0 +1,12 @@
+export API_PORT=3003
+export DB_HOST=127.0.0.1:27017
+export DB_NAME=isp_ccounts
+export API_VERSION=v1
+export RESERVED_NUMBER=0614934725
+export NUMBER_LENGTH=10
+export COUNTRY_CODE=+27
+export RESERVED_OPT=0777
+export OTP_LENGTH=4
+export SEND_SMS_URL=""
+export MSG_API_KEY=""
+export CURRENCY=R
