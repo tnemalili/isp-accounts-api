@@ -45,7 +45,7 @@ func (receiver *Repository) FetchAccount(id string) (*models.Account, error) {
 
 	err := collection.FindOne(ctx, filter).Decode(&acc)
 
-	if err != nil { log.Error(err)  }
+	if err != nil { log.Error(err); return nil, err }
 
 	return &acc, nil
 }

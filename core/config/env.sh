@@ -10,3 +10,4 @@ export OTP_LENGTH=4
 export SEND_SMS_URL=""
 export MSG_API_KEY=""
 export CURRENCY=R
+export CUSTOMERS_URL=http://127.0.0.1:3002/api/v1/customers

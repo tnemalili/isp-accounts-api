@@ -39,12 +39,19 @@ func FETCHAccount(ctx echo.Context) error {
 
 	id := ctx.Param("id")
 
-	project, err := core.DBClient.FetchAccount(id)
+	account, err := core.DBClient.FetchAccount(id)
 	if err != nil {
 		message := &models.GenericMessage{Message: err.Error()}
 		return ctx.JSON(http.StatusNotFound, message)
 	}
-	return ctx.JSON(http.StatusOK, project)
+	// NOW ACCOUNT IS FOUND, LET's FETCH THE USER
+	fetchAccountHolder, err := core.HTTPClient.FetchCustomerHandler(account.CustomerID)
+	if err != nil {
+		message := &models.GenericMessage{Message: err.Error()}
+		return ctx.JSON(http.StatusNotFound, message)
+	}
+	account.AccountHolder = core.HTTPResponseHandler(fetchAccountHolder)
+	return ctx.JSON(http.StatusOK, account)
 }
 
 func UPDATEAccount(ctx echo.Context) error {
