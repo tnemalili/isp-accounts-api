@@ -1,6 +1,6 @@
 export API_PORT=3003
 export DB_HOST=127.0.0.1:27017
-export DB_NAME=isp_ccounts
+export DB_NAME=isp_accounts
 export API_VERSION=v1
 export RESERVED_NUMBER=0614934725
 export NUMBER_LENGTH=10

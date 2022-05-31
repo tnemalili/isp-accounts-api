@@ -16,12 +16,12 @@ func CREATEAccount(ctx echo.Context) error {
 		message := &models.GenericMessage{Message: "Bad Request"}
 		return ctx.JSON(http.StatusBadRequest, message)
 	}
-	success, err := core.DBClient.CreateAccount(&request)
+	account, err := core.DBClient.CreateAccount(&request)
 	if err != nil {
 		return core.HTTPErrorHandler(ctx, err, http.StatusInternalServerError)
 	}
 
-	return ctx.JSON(http.StatusOK, &models.GenericMessage{Message: "Created", Success: success})
+	return ctx.JSON(http.StatusOK, account)
 }
 
 func FETCHAccounts(ctx echo.Context) error {

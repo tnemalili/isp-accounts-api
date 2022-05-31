@@ -10,7 +10,7 @@ import (
 
 var accounts = "accounts"
 
-func (receiver *Repository) CreateAccount(request *models.CreateAccountModel) (bool, error) {
+func (receiver *Repository) CreateAccount(request *models.CreateAccountModel) (*models.Account, error) {
 
 	var account models.Account
 	account.ID = GenerateCode()
@@ -19,10 +19,10 @@ func (receiver *Repository) CreateAccount(request *models.CreateAccountModel) (b
 	account.CustomerID = request.CustomerId
 	account.Status = models.NewStatus(config.ACTIVE)
 	results, err := receiver.Database.Collection(accounts).InsertOne(ctx, account)
-	if err != nil { return false, err }
+	if err != nil { return nil, err }
 	log.Infof("[core.CreateAccount] Account Created: %s", results.InsertedID)
 
-	return true, nil
+	return &account, nil
 }
 
 func (receiver *Repository) FetchAccounts() ([]*models.Account, error) {
